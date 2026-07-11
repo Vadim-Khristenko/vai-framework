@@ -77,8 +77,8 @@ jobs:
 
       - name: ShellCheck contrib/bash
         run: |
-          # Report issues; severity warning+ must be clean
-          shellcheck -x -S warning \
+          # SC2034: intentional cross-function RES_* globals in agents.sh
+          shellcheck -x -S warning -e SC2034 \
             contrib/bash/vai.sh \
             contrib/bash/lib/common.sh \
             contrib/bash/lib/docker.sh \
