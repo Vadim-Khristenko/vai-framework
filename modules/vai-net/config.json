@@ -3,7 +3,7 @@
     "Name": "vai-net",
     "Prefix": "net",
     "Version": "1.1.0",
-    "Author": "Vadim Khristenko <vadim+pwsh@vai-rice.space>",
+    "Author": "Vadim Khristenko <vadim@vai-rice.space>",
     "Description": "Network toolkit: ping, ports, DNS, traceroute, scan, monitor, HTTP, speed"
   },
   "Settings": {

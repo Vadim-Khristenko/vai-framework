@@ -3,7 +3,7 @@
     "Name": "DevBuild",
     "Prefix": "db",
     "Version": "1.0.0",
-    "Author": "Vadim Khristenko <vadim+pwsh@vai-rice.space>",
+    "Author": "Vadim Khristenko <vadim@vai-rice.space>",
     "Description": "Dev build hub: detect stack, presets for cargo/bun/uv/npm/go/dotnet"
   },
   "Settings": {

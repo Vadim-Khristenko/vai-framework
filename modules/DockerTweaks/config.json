@@ -3,7 +3,7 @@
     "Name": "DockerTweaks",
     "Prefix": "docker",
     "Version": "1.5.0",
-    "Author": "Vadim Khristenko <vadim+pwsh@vai-rice.space>",
+    "Author": "Vadim Khristenko <vadim@vai-rice.space>",
     "Description": "Docker power-tools: compose, build, health, prune, ports, cp, stats"
   },
   "Settings": {

@@ -2,7 +2,7 @@
 # VAI-FRAMEWORK v5 :: CLI utilities
 # ==============================================================================
 
-$script:VaiAuthor = "Vadim Khristenko <vadim+pwsh@vai-rice.space>"
+$script:VaiAuthor = "Vadim Khristenko <vadim@vai-rice.space>"
 
 function global:Show-VaiModuleList {
     Show-VaiModuleGrid -Title "VAI MODULES" -Modules $global:VaiModulesCache

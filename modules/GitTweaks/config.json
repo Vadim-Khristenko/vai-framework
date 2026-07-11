@@ -3,7 +3,7 @@
     "Name": "GitTweaks",
     "Prefix": "git",
     "Version": "1.3.0",
-    "Author": "Vadim Khristenko <vadim+pwsh@vai-rice.space>",
+    "Author": "Vadim Khristenko <vadim@vai-rice.space>",
     "Description": "Git power-tools: status TUI, conventional commits, sync, stash, branches"
   },
   "Settings": {

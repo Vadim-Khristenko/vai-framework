@@ -155,7 +155,7 @@ ModuleName/
     "Name": "GitTweaks",
     "Prefix": "git",
     "Version": "1.1.0",
-    "Author": "Vadim Khristenko <vadim+pwsh@vai-rice.space>",
+    "Author": "Vadim Khristenko <vadim@vai-rice.space>",
     "Description": "Git utilities with Conventional Commits"
   },
   "Settings": {

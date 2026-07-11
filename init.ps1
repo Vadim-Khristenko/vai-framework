@@ -1,6 +1,6 @@
 # ==============================================================================
 # VAI-FRAMEWORK v5 — Entry point
-# Author: Vadim Khristenko <vadim+pwsh@vai-rice.space>
+# Author: Vadim Khristenko <vadim@vai-rice.space>
 # Version: 5.1.0
 # ==============================================================================
 
