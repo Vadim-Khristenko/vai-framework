@@ -5,6 +5,15 @@ All notable changes to **VAI-Framework** are documented here.
 Format based on [Keep a Changelog](https://keepachangelog.com/).  
 Versioning follows [SemVer](https://semver.org/).
 
+## [5.2.0] - 2026-07-11
+
+### Added
+- **KubeTweaks** module: `kctx` `kns` `kgp` `kgd` `kgs` `kgn` `klogs` `ksh` `ktop` `kdesc` `kapp` `kdel` `kwatch` `kpf` `kev`
+- Bash companion **v0.3**: pills, `vai doctor` / `vai modules`, full k8s helpers, richer docker
+
+### Improved
+- Bash UX closer to PowerShell (banners, status pills, parity command map)
+
 ## [5.1.3] - 2026-07-11
 
 ### Added

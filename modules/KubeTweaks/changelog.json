@@ -1,0 +1,14 @@
+{
+  "entries": [
+    {
+      "version": "1.0.0",
+      "date": "2026-07-11",
+      "type": "feat",
+      "changes": [
+        "Initial KubeTweaks: kctx/kns, get pods/deploy/svc/nodes",
+        "klogs, ksh, ktop, kdesc, kapp, kdel, kwatch, kpf, kev",
+        "TUI pills + graceful degrade without kubectl"
+      ]
+    }
+  ]
+}

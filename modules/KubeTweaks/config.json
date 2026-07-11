@@ -1,0 +1,20 @@
+{
+  "Meta": {
+    "Name": "KubeTweaks",
+    "Prefix": "k",
+    "Version": "1.0.0",
+    "Author": "Vadim Khristenko <vadim@vai-rice.space>",
+    "Description": "Kubernetes power-tools: contexts, pods, logs, exec, apply, port-forward, events"
+  },
+  "Settings": {
+    "EnableModule": true,
+    "LoadPriority": 100,
+    "LazyLoad": true,
+    "DependsOn": [],
+    "ShortAliases": true,
+    "Exports": [
+      "kctx", "kns", "kgp", "kgd", "kgs", "kgn", "klogs", "ksh",
+      "ktop", "kdesc", "kapp", "kdel", "kwatch", "kpf", "kev", "khelp", "help"
+    ]
+  }
+}

@@ -82,6 +82,7 @@ jobs:
             contrib/bash/vai.sh \
             contrib/bash/lib/common.sh \
             contrib/bash/lib/docker.sh \
+            contrib/bash/lib/k8s.sh \
             contrib/bash/lib/agents.sh \
             contrib/bash/lib/sex.sh \
             contrib/bash/lib/build.sh

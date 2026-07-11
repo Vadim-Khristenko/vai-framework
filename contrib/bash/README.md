@@ -1,64 +1,57 @@
-# VAI Bash Companion
+# VAI Bash Companion v0.3
 
-Advanced **bash 4+** shim for environments without PowerShell.  
-PowerShell VAI remains the **primary** runtime (registry, full SEX YAML, TUI).
+Closer UX to PowerShell VAI: **banners, pills, doctor, modules roster, Kubernetes, Docker**.
 
-## Install / use
+PowerShell remains the **primary** runtime (full registry, SEX YAML dialect, TUI).
 
-```bash
-# source into shell
-source /path/to/PowerShell/contrib/bash/vai.sh
-
-# or run as CLI
-bash /path/to/PowerShell/contrib/bash/vai.sh help
-```
-
-Add to `~/.bashrc`:
+## Install
 
 ```bash
-source ~/path/to/PowerShell/contrib/bash/vai.sh
+source /path/to/vai-framework/contrib/bash/vai.sh
+# or
+bash /path/to/vai-framework/contrib/bash/vai.sh help
 ```
 
-## Modules
-
-| Area | Commands |
-|------|----------|
-| **Docker** | `dps`, `dsh`, `dlogs`, `dup`, `ddown`, `dbuild`, `dhealth`, `dprune` |
-| **AgentHub** | `ai list`, `ai which`, `ai install`, `ai run`, `ai claude` |
-| **SEX** | `sex init`, `sex list`, `sex up`, `sex up --dry` |
-| **DevBuild** | `db`, `db tools`, `db build\|test\|run\|install\|clean` |
-
-## AgentHub (bash)
-
-Detection order: **PATH → bun global bin → npm global bin**.
+`~/.bashrc`:
 
 ```bash
-ai list
-ai install claude          # prefers bun if available
-ai install codex bun
-ai install antigravity     # Google Antigravity CLI (agy) — Gemini CLI successor
-ai run claude
+source ~/src/vai-framework/contrib/bash/vai.sh
 ```
 
-**Antigravity CLI** (`agy`) is Google’s replacement for Gemini CLI (I/O 2026).  
-Download: https://antigravity.google/download
+## Commands (parity map)
 
-## SEX
+| Area | Bash | PowerShell |
+|------|------|------------|
+| Boot help | `vai help` / `vai doctor` / `vai modules` | `. init.ps1` / `vai-doctor` / `vai-module list` |
+| Docker | `dps` `dup` `dhealth` `dimg` … | same short names |
+| Kubernetes | `kctx` `kns` `kgp` `klogs` `ksh` … | **KubeTweaks** module |
+| Agents | `ai list` `ai install` `ai run` | `ai` |
+| SEX | `sex init` `sex up` | `sex` |
+| Build | `db build` | `db` |
 
-Mini-YAML subset (targets + `cmd:` lines). Full dialect = PowerShell `sex`.
+## Kubernetes
+
+```bash
+kctx              # list / switch contexts
+kns production    # set namespace
+kgp               # pods
+kgp -A
+klogs my-pod -f
+ksh my-pod
+kapp deploy.yaml
+kpf my-pod 8080:80
+khelp
+```
 
 ## Layout
 
 ```
 contrib/bash/
-  vai.sh           # entry (source or exec)
-  lib/common.sh
+  vai.sh
+  lib/common.sh   # banners, pills, doctor, modules
   lib/docker.sh
+  lib/k8s.sh
   lib/agents.sh
   lib/sex.sh
   lib/build.sh
 ```
-
-## Version
-
-`0.2.0` — companion to VAI PowerShell **5.1.3+**.

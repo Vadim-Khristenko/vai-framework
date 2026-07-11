@@ -36,7 +36,7 @@ Assert-True ($null -ne $global:Vai.M) "`$Vai.M registry map exists"
 Assert-True ($global:VaiModulesCache.Count -ge 1) "At least one module in cache ($($global:VaiModulesCache.Count))"
 
 $names = @($global:VaiModulesCache | ForEach-Object { $_.Name })
-foreach ($need in @('sex', 'AgentHub', 'CommandNotFound')) {
+foreach ($need in @('sex', 'AgentHub', 'CommandNotFound', 'KubeTweaks')) {
     Assert-True ($names -contains $need) "Module present: $need"
 }
 
@@ -46,6 +46,8 @@ Assert-True ([bool](Get-Command Get-VaiExport -ErrorAction SilentlyContinue)) "G
 Assert-True ([bool](Get-Command sex -ErrorAction SilentlyContinue)) "sex command bound"
 Assert-True ([bool](Get-Command ai -ErrorAction SilentlyContinue)) "ai command bound"
 Assert-True ([bool](Get-Command db -ErrorAction SilentlyContinue)) "db command bound"
+# Kube is lazy — export stubs should exist
+Assert-True ([bool](Get-Command kgp -ErrorAction SilentlyContinue) -or [bool](Get-VaiExport -Module K -Name kgp)) "kgp export/stub available"
 
 $exports = @(Get-VaiExport)
 Assert-True ($exports.Count -gt 0) "Registry has exports ($($exports.Count))"

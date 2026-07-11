@@ -2,7 +2,7 @@
 # VAI-FRAMEWORK v5 :: Global state, colors, OS flags
 # ==============================================================================
 
-$global:VaiCoreVersion = "5.1.3"
+$global:VaiCoreVersion = "5.2.0"
 
 if (-not $global:VaiFrameworkRoot) {
     $global:VaiFrameworkRoot = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)

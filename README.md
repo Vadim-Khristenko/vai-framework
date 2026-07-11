@@ -61,11 +61,14 @@ Optional: add to your PowerShell profile:
 ```bash
 source contrib/bash/vai.sh
 vai help
+vai doctor
+vai modules
 ai list
 dps
+kgp
 ```
 
-See [`contrib/bash/README.md`](contrib/bash/README.md).
+See [`contrib/bash/README.md`](contrib/bash/README.md) — v0.3 tracks PowerShell UX (pills, doctor, k8s).
 
 ---
 
@@ -104,6 +107,7 @@ Invoke-Vai Git gs
 | **AgentHub** | `ai` | Claude, Grok, Codex, OpenCode, **Antigravity**, install via bun/npm |
 | **DevBuild** | `db` | Detect cargo/bun/uv/npm/go/dotnet · `db build/test/run` |
 | **DockerTweaks** | `docker` | `dps` `dup` `dhealth` `dbuild` `dprune` … |
+| **KubeTweaks** | `k` | `kctx` `kns` `kgp` `klogs` `ksh` `kapp` `kpf` … |
 | **GitTweaks** | `git` | Conventional commits, status TUI, sync helpers |
 | **vai-net** | `net` | Ping, ports, DNS, scan, HTTP, speed |
 | **CommandNotFound** | `cnf` | Fuzzy suggestions + install hints |
@@ -215,6 +219,25 @@ db run
 db install
 db build -Stack cargo
 ```
+
+---
+
+## KubeTweaks
+
+```powershell
+kctx                 # contexts (+ switch: kctx prod)
+kns                  # namespaces (+ set: kns default)
+kgp                  # pods (picker-friendly)
+klogs [pod] -Follow
+ksh [pod]            # bash/sh into container
+ktop pods|nodes
+kapp deploy.yaml
+kpf my-pod 8080:80
+kev
+kube-help            # or k:help
+```
+
+Requires `kubectl` on PATH; degrades cleanly if the cluster is offline.
 
 ---
 

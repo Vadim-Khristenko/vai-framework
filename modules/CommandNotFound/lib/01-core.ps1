@@ -42,7 +42,6 @@ $script:CNF_KnownPackages = @{
     "rustc"    = @{ winget = "Rustlang.Rustup"; brew = "rust" }
     "code"     = @{ winget = "Microsoft.VisualStudioCode"; brew = "visual-studio-code" }
     "gh"       = @{ winget = "GitHub.cli"; brew = "gh"; apt = "gh" }
-    "kubectl"  = @{ winget = "Kubernetes.kubectl"; brew = "kubernetes-cli" }
     "ffmpeg"   = @{ winget = "Gyan.FFmpeg"; brew = "ffmpeg"; apt = "ffmpeg" }
     "rg"       = @{ winget = "BurntSushi.ripgrep.MSVC"; brew = "ripgrep"; apt = "ripgrep" }
     "fzf"      = @{ winget = "junegunn.fzf"; brew = "fzf"; apt = "fzf" }
@@ -55,6 +54,9 @@ $script:CNF_KnownPackages = @{
     "codex"    = @{ npm = "@openai/codex" }
     "opencode" = @{}
     "yq"       = @{ winget = "MikeFarah.yq"; scoop = "yq"; brew = "yq" }
+    "kubectl"  = @{ winget = "Kubernetes.kubectl"; brew = "kubernetes-cli"; scoop = "kubectl"; choco = "kubernetes-cli" }
+    "helm"     = @{ winget = "Helm.Helm"; brew = "helm"; scoop = "helm" }
+    "k9s"      = @{ winget = "Derailed.k9s"; brew = "k9s"; scoop = "k9s" }
     "make"     = @{ winget = "GnuWin32.Make"; scoop = "make"; brew = "make"; apt = "make" }
     "cmake"    = @{ winget = "Kitware.CMake"; brew = "cmake"; apt = "cmake" }
     "wget"     = @{ winget = "JernejSimoncic.Wget"; brew = "wget"; apt = "wget" }
