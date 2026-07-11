@@ -33,10 +33,24 @@ _npm_has_bin() {
   [[ -n "$dir" && ( -x "$dir/$bin" || -f "$dir/$bin" ) ]]
 }
 
+# Result globals filled by _resolve_agent (read by cmd_ai_*)
+RES_KEY=''
+RES_NAME=''
+RES_PATH=''
+RES_VIA=''
+RES_HINT=''
+RES_NPM=''
+RES_BUN=''
+
 _resolve_agent() {
-  # sets RES_KEY RES_NAME RES_PATH RES_VIA RES_HINT RES_NPM RES_BUN
   local key="$1" row bins b
-  RES_KEY= RES_NAME= RES_PATH= RES_VIA= RES_HINT= RES_NPM= RES_BUN=
+  RES_KEY=''
+  RES_NAME=''
+  RES_PATH=''
+  RES_VIA=''
+  RES_HINT=''
+  RES_NPM=''
+  RES_BUN=''
   for row in "${AGENT_ROWS[@]}"; do
     [[ "$(_agent_field "$row" 1)" == "$key" ]] || continue
     RES_KEY="$key"
@@ -73,7 +87,7 @@ _resolve_agent() {
 
 cmd_ai_list() {
   vai_banner "AgentHub" "PATH · bun · npm"
-  local row key present path via
+  local row key
   local on=0 total=0
   for row in "${AGENT_ROWS[@]}"; do
     total=$((total + 1))

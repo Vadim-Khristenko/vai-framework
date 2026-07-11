@@ -16,8 +16,14 @@ if [[ -t 1 ]] && [[ "${NO_COLOR:-}" != "1" ]]; then
   VAI_C_BLUE=$'\033[38;5;39m'
   VAI_C_RESET=$'\033[0m'
 else
-  VAI_C_MAGENTA= VAI_C_CYAN= VAI_C_GREEN= VAI_C_YELLOW=
-  VAI_C_RED= VAI_C_GRAY= VAI_C_BLUE= VAI_C_RESET=
+  VAI_C_MAGENTA=''
+  VAI_C_CYAN=''
+  VAI_C_GREEN=''
+  VAI_C_YELLOW=''
+  VAI_C_RED=''
+  VAI_C_GRAY=''
+  VAI_C_BLUE=''
+  VAI_C_RESET=''
 fi
 
 vai_banner() {
