@@ -1,0 +1,31 @@
+name: Module idea
+description: Propose a new VAI module
+title: "[module] "
+labels: ["module", "enhancement"]
+body:
+  - type: input
+    id: name
+    attributes:
+      label: Proposed module name
+      placeholder: e.g. KubeTweaks
+    validations:
+      required: true
+  - type: input
+    id: prefix
+    attributes:
+      label: Prefix
+      placeholder: e.g. k8s
+    validations:
+      required: true
+  - type: textarea
+    id: exports
+    attributes:
+      label: Suggested exports / commands
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why this belongs in VAI
+    validations:
+      required: true

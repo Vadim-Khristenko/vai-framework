@@ -1,0 +1,19 @@
+{
+  "Meta": {
+    "Name": "AgentHub",
+    "Prefix": "ai",
+    "Version": "1.3.0",
+    "Author": "Vadim Khristenko <vadim+pwsh@vai-rice.space>",
+    "Description": "AI agent cockpit: PATH/bun/npm detect, install, Antigravity (Google)"
+  },
+  "Settings": {
+    "EnableModule": true,
+    "LoadPriority": 90,
+    "LazyLoad": false,
+    "DependsOn": [],
+    "ShortAliases": true,
+    "Exports": ["ai"],
+    "DefaultAgent": "",
+    "ShowContextOnRun": true
+  }
+}

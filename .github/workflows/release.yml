@@ -1,0 +1,92 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Tag to release (e.g. v5.1.3) — must already exist or will be created from HEAD'
+        required: false
+        default: ''
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: GitHub Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Resolve tag
+        id: meta
+        shell: bash
+        run: |
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" && -n "${{ inputs.tag }}" ]]; then
+            TAG="${{ inputs.tag }}"
+          else
+            TAG="${GITHUB_REF_NAME}"
+          fi
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+          echo "version=${TAG#v}" >> "$GITHUB_OUTPUT"
+
+      - name: Verify smoke before release
+        shell: pwsh
+        run: |
+          & ./tests/Smoke-Vai.ps1
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+      - name: Build release notes
+        id: notes
+        shell: bash
+        run: |
+          VER="${{ steps.meta.outputs.version }}"
+          TAG="${{ steps.meta.outputs.tag }}"
+          NOTES_FILE="$RUNNER_TEMP/notes.md"
+          {
+            echo "## VAI-Framework ${TAG}"
+            echo ""
+            echo "PowerShell hybrid-registry toolkit — modules, SEX runner, AgentHub, Docker, DevBuild."
+            echo ""
+            if [[ -f CHANGELOG.md ]]; then
+              echo "### Changelog"
+              echo ""
+              # Extract section for this version if present
+              awk -v ver="$VER" '
+                BEGIN{p=0}
+                $0 ~ "^## \\[" ver "\\]" {p=1; print; next}
+                p && $0 ~ /^## \[/ {exit}
+                p {print}
+              ' CHANGELOG.md
+            fi
+            echo ""
+            echo "### Install"
+            echo ""
+            echo '```powershell'
+            echo "git clone https://github.com/${{ github.repository }}.git"
+            echo "cd vai-framework"
+            echo "git checkout ${TAG}"
+            echo ". .\init.ps1"
+            echo '```'
+            echo ""
+            echo "**Ship. Execute. eXcite.**"
+          } > "$NOTES_FILE"
+          echo "file=$NOTES_FILE" >> "$GITHUB_OUTPUT"
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.meta.outputs.tag }}
+          name: VAI-Framework ${{ steps.meta.outputs.tag }}
+          body_path: ${{ steps.notes.outputs.file }}
+          draft: false
+          prerelease: ${{ contains(steps.meta.outputs.tag, '-') }}
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

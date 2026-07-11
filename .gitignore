@@ -1,0 +1,30 @@
+# Local PowerShell embed / side installs
+/7/
+/node_modules/
+
+# Runtime
+/logs/
+*.log
+*.tmp
+tmp/
+tmp-*.ps1
+temp/
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*~
+
+# Secrets / local prefs (never commit)
+.env
+.env.*
+*.pem
+agenthub.local.json
+
+# Build artifacts
+dist/
+out/
+*.nupkg

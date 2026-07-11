@@ -1,0 +1,21 @@
+{
+  "Meta": {
+    "Name": "CommandNotFound",
+    "Prefix": "cnf",
+    "Version": "1.3.0",
+    "Author": "Vadim Khristenko <vadim+pwsh@vai-rice.space>",
+    "Description": "Smart command-not-found: fuzzy tips, packages, history, TUI"
+  },
+  "Settings": {
+    "EnableModule": true,
+    "LoadPriority": 10,
+    "LazyLoad": false,
+    "DependsOn": [],
+    "ShortAliases": true,
+    "Exports": ["suggest", "enable", "disable", "history", "miss"],
+    "AutoEnable": true,
+    "MaxSuggestionDistance": 3,
+    "MaxSuggestions": 5,
+    "QuietMode": false
+  }
+}

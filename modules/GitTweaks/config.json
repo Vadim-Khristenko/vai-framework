@@ -1,0 +1,17 @@
+{
+  "Meta": {
+    "Name": "GitTweaks",
+    "Prefix": "git",
+    "Version": "1.3.0",
+    "Author": "Vadim Khristenko <vadim+pwsh@vai-rice.space>",
+    "Description": "Git power-tools: status TUI, conventional commits, sync, stash, branches"
+  },
+  "Settings": {
+    "EnableModule": true,
+    "LoadPriority": 100,
+    "LazyLoad": true,
+    "DependsOn": [],
+    "ShortAliases": true,
+    "Exports": ["gs", "glg", "gcommit", "gundo", "gstats", "gpull", "gpush", "gco", "gb", "gd", "gstash", "gsync", "help"]
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "Meta": {
+    "Name": "vai-net",
+    "Prefix": "net",
+    "Version": "1.1.0",
+    "Author": "Vadim Khristenko <vadim+pwsh@vai-rice.space>",
+    "Description": "Network toolkit: ping, ports, DNS, traceroute, scan, monitor, HTTP, speed"
+  },
+  "Settings": {
+    "EnableModule": true,
+    "LoadPriority": 50,
+    "LazyLoad": false,
+    "DependsOn": [],
+    "ShortAliases": true,
+    "Exports": ["ping", "port", "dns", "trace", "iface", "http", "scan", "monitor", "speed", "help"],
+    "DefaultTimeout": 3000,
+    "DefaultPingCount": 4,
+    "MaxParallelJobs": 20,
+    "MonitorInterval": 5
+  }
+}

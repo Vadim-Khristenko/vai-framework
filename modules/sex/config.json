@@ -1,0 +1,17 @@
+{
+  "Meta": {
+    "Name": "sex",
+    "Prefix": "sex",
+    "Version": "1.0.0",
+    "Author": "Vadim Khristenko <vadim+pwsh@vai-rice.space>",
+    "Description": "SEX — Script EXecutor. Ship. Execute. eXcite. Full task runner."
+  },
+  "Settings": {
+    "EnableModule": true,
+    "LoadPriority": 80,
+    "LazyLoad": false,
+    "DependsOn": [],
+    "ShortAliases": true,
+    "Exports": ["sex"]
+  }
+}

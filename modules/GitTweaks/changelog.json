@@ -1,0 +1,13 @@
+{
+  "entries": [
+    {
+      "version": "1.3.0",
+      "date": "2026-07-10",
+      "type": "feat",
+      "changes": [
+        "TUI status pills, gpull/gpush/gco/gb/gd/gstash/gsync",
+        "Richer conventional commit preview box"
+      ]
+    }
+  ]
+}

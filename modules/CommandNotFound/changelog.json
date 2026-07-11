@@ -1,0 +1,14 @@
+{
+  "entries": [
+    {
+      "version": "1.3.0",
+      "date": "2026-07-10",
+      "type": "feat",
+      "changes": [
+        "Multi-file lib/, richer TUI, miss history",
+        "Noise filter for Get-* probes, package map expansion",
+        "vai-suggest / vai-misses exports"
+      ]
+    }
+  ]
+}

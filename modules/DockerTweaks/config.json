@@ -1,0 +1,21 @@
+{
+  "Meta": {
+    "Name": "DockerTweaks",
+    "Prefix": "docker",
+    "Version": "1.5.0",
+    "Author": "Vadim Khristenko <vadim+pwsh@vai-rice.space>",
+    "Description": "Docker power-tools: compose, build, health, prune, ports, cp, stats"
+  },
+  "Settings": {
+    "EnableModule": true,
+    "LoadPriority": 100,
+    "LazyLoad": true,
+    "DependsOn": [],
+    "ShortAliases": true,
+    "Exports": [
+      "dps", "dsh", "dlogs", "dstats", "dclean", "dnuke",
+      "dup", "ddown", "drestart", "dimg", "dvol", "dnet", "dtop", "dexec",
+      "dbuild", "dcp", "dports", "dhealth", "dprune", "dcmp", "dclogs", "help"
+    ]
+  }
+}

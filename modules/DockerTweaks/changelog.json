@@ -1,0 +1,19 @@
+{
+  "entries": [
+    {
+      "version": "1.5.0",
+      "date": "2026-07-11",
+      "type": "feat",
+      "changes": [
+        "dbuild, dcp, dports, dhealth, dprune, dcmp, dclogs",
+        "Richer compose + health/disk tooling"
+      ]
+    },
+    {
+      "version": "1.4.0",
+      "date": "2026-07-10",
+      "type": "feat",
+      "changes": ["Compose dup/ddown, dimg/dvol/dnet, TUI"]
+    }
+  ]
+}

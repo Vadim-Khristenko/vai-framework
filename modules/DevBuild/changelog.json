@@ -1,0 +1,13 @@
+{
+  "entries": [
+    {
+      "version": "1.0.0",
+      "date": "2026-07-10",
+      "type": "feat",
+      "changes": [
+        "DevBuild module: stack detect + presets build/test/run/clean/fix/install",
+        "Supports cargo, bun, npm, pnpm, yarn, uv, poetry, go, dotnet, make"
+      ]
+    }
+  ]
+}

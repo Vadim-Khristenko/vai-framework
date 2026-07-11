@@ -1,0 +1,22 @@
+{
+  "entries": [
+    {
+      "version": "1.0.0",
+      "date": "2026-07-10",
+      "type": "feat",
+      "changes": [
+        "Full SEX runner: targets, dry-run, bg, env, open URLs",
+        "Mini-YAML dialect (zero deps) + sex.json support",
+        "TUI steps and spicy GitHub-safe branding"
+      ]
+    },
+    {
+      "version": "0.1.0",
+      "date": "2026-07-10",
+      "type": "feat",
+      "changes": [
+        "Initial stub"
+      ]
+    }
+  ]
+}

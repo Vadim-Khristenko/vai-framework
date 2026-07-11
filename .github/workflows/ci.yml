@@ -1,0 +1,87 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  smoke-windows:
+    name: Smoke (Windows / pwsh)
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: PowerShell version
+        shell: pwsh
+        run: |
+          $PSVersionTable | Format-List
+          Write-Host "pwsh:" (Get-Command pwsh).Source
+
+      - name: Run smoke tests
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          & ./tests/Smoke-Vai.ps1
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+  smoke-ubuntu:
+    name: Smoke (Ubuntu / pwsh)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Ensure PowerShell
+        shell: bash
+        run: |
+          if ! command -v pwsh >/dev/null 2>&1; then
+            # Fallback install if image ever drops pwsh
+            curl -fsSL -o /tmp/install-ps.sh https://aka.ms/install-powershell.sh
+            sudo bash /tmp/install-ps.sh
+          fi
+          pwsh -NoLogo -Command '$PSVersionTable.PSVersion.ToString()'
+
+      - name: Run smoke tests
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          & ./tests/Smoke-Vai.ps1
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+      - name: Bash companion smoke
+        shell: bash
+        run: |
+          bash ./tests/bash/smoke.sh
+
+  lint-shell:
+    name: ShellCheck (bash companion)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install ShellCheck
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq shellcheck
+
+      - name: ShellCheck contrib/bash
+        run: |
+          # Report issues; severity warning+ must be clean
+          shellcheck -x -S warning \
+            contrib/bash/vai.sh \
+            contrib/bash/lib/common.sh \
+            contrib/bash/lib/docker.sh \
+            contrib/bash/lib/agents.sh \
+            contrib/bash/lib/sex.sh \
+            contrib/bash/lib/build.sh
